@@ -49,3 +49,6 @@ cmd + shift - 0 : yabai -m window --space 10; yabai -m space --focus 10
 
 # make a window fullscreen
 alt - f : yabai -m window --toggle zoom-fullscreen
+
+# rotate tree
+alt - r : yabai -m space --rotate 90

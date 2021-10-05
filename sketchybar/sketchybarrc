@@ -3,6 +3,8 @@
 # TODO: Implement the plugin system for easier setup of preconfigured items
 
 ############## BAR ##################
+sketchybar -m config y_offset             12
+sketchybar -m config margin               12
 sketchybar -m config height               23
 sketchybar -m config position             top
 sketchybar -m config padding_left         0
@@ -15,7 +17,7 @@ sketchybar -m default cache_scripts on
 ############## SPACES ###############
 sketchybar -m default icon_font "Hack Nerd Font:Bold:14.0"
 sketchybar -m default icon_color 0xffffffff
-sketchybar -m default label_font "Menlo:Bold:12.0"
+sketchybar -m default label_font "Menlo:Regular:12.0"
 sketchybar -m default label_color 0xffffffff
 sketchybar -m default label_padding_left 4
 sketchybar -m default icon_padding_left 16
@@ -86,9 +88,11 @@ sketchybar -m set six click_script "yabai -m space --focus 6"
 
 ################# RIGHT ITEMS ####################
 sketchybar -m add item clock right
-sketchybar -m set clock update_freq 10
+sketchybar -m set clock update_freq 5
 sketchybar -m set clock script "~/.config/sketchybar/plugins/clock.sh"
+sketchybar -m set clock icon_color 0xff8CABC8
 sketchybar -m set clock icon   
+sketchybar -m set clock icon_padding_right 4
 
 sketchybar -m default label_padding_left 4
 sketchybar -m default icon_padding_left 15
@@ -101,7 +105,7 @@ sketchybar -m subscribe title window_focus
 sketchybar -m subscribe title front_app_switched
 sketchybar -m subscribe title space_change
 sketchybar -m subscribe title title_change
-sketchybar -m set title enabled                        on
+# sketchybar -m set title enabled                        on
 
 sketchybar -m update
 

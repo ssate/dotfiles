@@ -13,4 +13,5 @@ tell application "System Events"
 end tell
 return {frontAppName, windowTitle}')
 
-sketchybar -m set windowTitle label "$WINDOW_INFO"
+sketchybar -m set title label "$WINDOW_INFO"
+# sketchybar -m set windowTitle label "$WINDOW_INFO"
