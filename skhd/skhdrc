@@ -2,14 +2,14 @@
 cmd - return : alacritty
 
 # navigating spaces
-cmd - 1 : yabai -m space --focus 1
-cmd - 2 : yabai -m space --focus 2
-cmd - 3 : yabai -m space --focus 3
-cmd - 4 : yabai -m space --focus 4
-cmd - 5 : yabai -m space --focus 5
-cmd - 6 : yabai -m space --focus 6
-cmd - 7 : yabai -m space --focus 7
-cmd - 8 : yabai -m space --focus 8
+cmd - 1 : yabai -m space --focus 1 && yabai -m window --focus "$(yabai -m query --windows --space | jq .[0].id)"
+cmd - 2 : yabai -m space --focus 2 && yabai -m window --focus "$(yabai -m query --windows --space | jq .[0].id)"
+cmd - 3 : yabai -m space --focus 3 && yabai -m window --focus "$(yabai -m query --windows --space | jq .[0].id)"
+cmd - 4 : yabai -m space --focus 4 && yabai -m window --focus "$(yabai -m query --windows --space | jq .[0].id)"
+cmd - 5 : yabai -m space --focus 5 && yabai -m window --focus "$(yabai -m query --windows --space | jq .[0].id)" 
+cmd - 6 : yabai -m space --focus 6 && yabai -m window --focus "$(yabai -m query --windows --space | jq .[0].id)" 
+cmd - 7 : yabai -m space --focus 7 && yabai -m window --focus "$(yabai -m query --windows --space | jq .[0].id)"
+cmd - 8 : yabai -m space --focus 8 && yabai -m window --focus "$(yabai -m query --windows --space | jq .[0].id)" 
 cmd - 9 : yabai -m space --focus 9
 cmd - 0 : yabai -m space --focus 10
 

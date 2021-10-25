@@ -12,7 +12,7 @@ scrolling:
 background_opacity: 0.7
 font:
   normal:
-    family: MesloLGS NF
+    family: MesloLGS NF 
     style: Regular
   bold:
     family: MesloLGS NF
