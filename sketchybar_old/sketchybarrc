@@ -1,0 +1,112 @@
+# TODO: Cache scripts from files to reduce IO operations
+# TODO: Create a enable disable command to hide items and unsubscribe them from updates
+# TODO: Implement the plugin system for easier setup of preconfigured items
+
+############## BAR ##################
+sketchybar -m config y_offset             12
+sketchybar -m config margin               12
+sketchybar -m config height               23
+sketchybar -m config position             top
+sketchybar -m config padding_left         0
+sketchybar -m config padding_right        15
+sketchybar -m config bar_color            0xff424C5D
+
+############## SCRIPT CACHING ############
+sketchybar -m default cache_scripts on
+
+############## SPACES ###############
+sketchybar -m default icon_font "Hack Nerd Font:Bold:14.0"
+sketchybar -m default icon_color 0xffffffff
+sketchybar -m default label_font "Menlo:Regular:12.0"
+sketchybar -m default label_color 0xffffffff
+sketchybar -m default label_padding_left 4
+sketchybar -m default icon_padding_left 16
+
+sketchybar -m add component space one left
+sketchybar -m set one associated_display 1
+sketchybar -m set one associated_space 1
+sketchybar -m set one icon 
+sketchybar -m set one icon_highlight_color 0xff8CABC8
+sketchybar -m set one label :1
+sketchybar -m set one label_padding_right 0
+sketchybar -m set one click_script "yabai -m space --focus 1"
+
+sketchybar -m add component space two left
+sketchybar -m set two associated_display 1
+sketchybar -m set two associated_space 2
+sketchybar -m set two icon_highlight_color 0xff8CABC8
+sketchybar -m set two icon 
+sketchybar -m set two label :2
+sketchybar -m set two icon_padding_left 20
+sketchybar -m set two click_script "yabai -m space --focus 2"
+
+sketchybar -m add component space three left
+sketchybar -m set three associated_display 1
+sketchybar -m set three associated_space 3
+sketchybar -m set three icon_highlight_color 0xff8CABC8
+sketchybar -m set three icon  
+sketchybar -m set three label :3
+sketchybar -m set three icon_padding_left 21
+sketchybar -m set three click_script "yabai -m space --focus 3"
+
+sketchybar -m add component space four left
+sketchybar -m set four associated_display 1
+sketchybar -m set four associated_space 4
+sketchybar -m set four icon_highlight_color 0xff8CABC8
+sketchybar -m set four icon  
+sketchybar -m set four label :4
+sketchybar -m set four icon_padding_left 24
+sketchybar -m set four click_script "yabai -m space --focus 4"
+
+sketchybar -m add component space five left
+sketchybar -m set five associated_display 1
+sketchybar -m set five associated_space 5
+sketchybar -m set five icon_highlight_color 0xff8CABC8
+sketchybar -m set five icon   
+sketchybar -m set five label :5
+sketchybar -m set five icon_padding_left 23
+sketchybar -m set five click_script "yabai -m space --focus 5"
+
+sketchybar -m add component space six left
+sketchybar -m set six associated_display 1
+sketchybar -m set six associated_space 6
+sketchybar -m set six icon_highlight_color 0xff8CABC8
+sketchybar -m set six icon   
+sketchybar -m set six label :6
+sketchybar -m set six icon_padding_left 23
+sketchybar -m set six click_script "yabai -m space --focus 6"
+
+################## LEFT ITEMS ##################
+# sketchybar -m default label_padding_left 0
+# sketchybar -m default icon_padding_left 0
+
+# sketchybar -m add item dndIndicator left
+# sketchybar -m set dndIndicator associated_space 1
+# sketchybar -m set dndIndicator script "~/.config/sketchybar/plugins/dndIndicator.sh"
+# sketchybar -m set dndIndicator update_freq 15
+#
+
+################# RIGHT ITEMS ####################
+sketchybar -m add item clock right
+sketchybar -m set clock update_freq 5
+sketchybar -m set clock script "~/.config/sketchybar/plugins/clock.sh"
+sketchybar -m set clock icon_color 0xff8CABC8
+sketchybar -m set clock icon   
+sketchybar -m set clock icon_padding_right 4
+
+sketchybar -m default label_padding_left 4
+sketchybar -m default icon_padding_left 15
+
+###################### CENTER ITEMS ###################
+# W I N D O W  T I T L E 
+sketchybar -m add item title                           center
+sketchybar -m set title script                         "$HOME/.config/sketchybar/plugins/window_title.sh"
+sketchybar -m subscribe title window_focus
+sketchybar -m subscribe title front_app_switched
+sketchybar -m subscribe title space_change
+sketchybar -m subscribe title title_change
+# sketchybar -m set title enabled                        on
+
+sketchybar -m update
+
+echo "sketchybar configuration loaded.."

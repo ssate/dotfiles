@@ -5,20 +5,20 @@ window:
   padding:
     x: 10
     y: 10
+  opacity: 0.8
   decorations: none
 scrolling:
   history: 10000
   multiplier: 3
-background_opacity: 0.7
 font:
   normal:
-    family: MesloLGS NF 
+    family: JetBrainsMono Nerd Font Mono 
     style: Regular
   bold:
-    family: MesloLGS NF
+    family: JetBrainsMono Nerd Font Mono  
     style: Bold
   italic:
-    family: MesloLGS NF
+    family: JetBrainsMono Nerd Font Mono  
     style: Italic
   size: 12
   offset:

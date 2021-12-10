@@ -8,8 +8,11 @@ if empty(glob('~/.config/nvim/autoload/plug.vim'))
 endif
 
 call plug#begin('~/.config/nvim/autoload/plugged')
+	" Easier navigation
+	Plug 'easymotion/vim-easymotion'
 	" Color match parentheses
-	Plug 'luochen1990/rainbow'
+	" Plug 'luochen1990/rainbow'
+	" Indent color guides
 	Plug 'nathanaelkane/vim-indent-guides'
     " Better Syntax Support
     Plug 'sheerun/vim-polyglot'
@@ -23,13 +26,11 @@ call plug#begin('~/.config/nvim/autoload/plugged')
 	Plug 'arcticicestudio/nord-vim'
 	" Auto completion
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
-    " Language pack?
-    Plug 'sheerun/vim-polyglot'
     " Custom status line
     Plug 'vim-airline/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
     " CSS Color previews
-    Plug 'ap/vim-css-color'
+    " Plug 'ap/vim-css-color'
     " File finder
     Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
     Plug 'junegunn/fzf.vim'
@@ -69,6 +70,8 @@ call plug#end()
 " ========= SETTINGS ==========
 " set leader key
 let g:mapleader = "\<Space>"
+
+" let g:python3_host_prog = "/usr/bin/python3"
 
 syntax enable                           " Enables syntax highlighing
 set mouse=a                                                             " Enable scrolling using mouse
@@ -209,12 +212,37 @@ vnoremap <leader>d "_d
 " without yanking it
 vnoremap <leader>p "_dP
 
+" toggle indent guides
+nmap <leader>i :IndentGuidesToggle<cr>
+
+" easy motion navigation binds
+map <leader>m <Plug>(easymotion-overwin-w)
+map <leader>l <Plug>(easymotion-overwin-line)
+
+" use coc for improved goto definition & reference list
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gr <Plug>(coc-references)
+
+" show documention of code cursor is on wih 'K'
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  elseif (coc#rpc#ready())
+    call CocActionAsync('doHover')
+  else
+    execute '!' . &keywordprg . " " . expand('<cword>')
+  endif
+endfunction
+
+
 " ========== SETTING THEMES =========
 colorscheme nord
 let g:airline_theme='nord'
 
-
-
+" ========== EASYMOTION COLOR CONFIG =========
+hi EasyMotionTarget ctermbg=none ctermfg=1
+hi EasyMotionShade  ctermbg=none ctermfg=8
 
 " ========== AIRLINE SETTINGS =========
 let g:airline#extensions#tabline#enabled = 1           " enable airline tabline                   
@@ -222,7 +250,6 @@ let g:airline#extensions#tabline#show_close_button = 0 " remove 'X' at the end o
 let g:airline#extensions#tabline#tabs_label = 'T'       " can put text here like BUFFERS to denote buffers (I clear it so nothing is shown)
 let g:airline#extensions#tabline#buffers_label = 'B'    " can put text here like TABS to denote tabs (I clear it so nothing is shown)
 let g:airline#extensions#tabline#fnamemod = ':t'       " disable file paths in the tab            
-let g:airline#extensions#tabline#show_tab_count = 0    " dont show tab numbers on the right       
 " let g:airline#extensions#tabline#show_buffers = 0      " dont show buffers in the tabline       
 " let g:airline#extensions#tabline#tab_min_count = 2     " minimum of 2 tabs needed to display the tabline
 let g:airline#extensions#tabline#show_splits = 0       " disables the buffer name that displays on the right of the tabline
@@ -241,3 +268,5 @@ let NERDTreeQuitOnOpen=1
 let NERDTreeWinSize = 60
 
 let g:rainbow_active = 1
+
+let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.php,*.vue'

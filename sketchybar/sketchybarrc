@@ -4,7 +4,9 @@
 		position=top \
 		padding_left=0 \
 		padding_right=0 \
-		color=0xff3b4252
+		color=0xff3b4252 \
+		shadow=off \
+		topmost=off
 
 ############## GLOBAL DEFAULTS ############## 
 	sketchybar -m --default \
@@ -200,54 +202,6 @@
 		--set mic update_freq=3 \
 		--set mic script="~/.config/sketchybar/plugins/mic.sh" \
 		--set mic click_script="~/.config/sketchybar/plugins/mic_click.sh"
-
-	# ETH PRICE
-	sketchybar -m --add item eth right \
-		--set eth icon.padding_left=0 \
-		--set eth icon.padding_right=0 \
-		--set eth label.padding_right=9 \
-		--set eth label.padding_left=6 \
-		--set eth label.color=0xffeceff4 \
-		--set eth update_freq=20 \
-		--set eth background.color=0xff57627A \
-		--set eth background.height=21 \
-		--set eth background.padding_right=7 \
-		--set eth script="~/.config/sketchybar/plugins/eth.sh"
-
-	# ETH LOGO
-	sketchybar -m --add item eth_logo right \
-		--set eth_logo icon=ﲹ \
-		--set eth_logo icon.padding_left=7 \
-		--set eth_logo icon.padding_right=7 \
-		--set eth_logo label.padding_right=0 \
-		--set eth_logo label.padding_left=0 \
-		--set eth_logo icon.color=0xffeceff4  \
-		--set eth_logo background.color=0xff57627A   \
-		--set eth_logo background.height=21 \
-
-	# BTC PRICE
-	sketchybar -m --add item btc right \
-		--set btc icon.padding_left=0 \
-		--set btc icon.padding_right=0 \
-		--set btc label.padding_right=9 \
-		--set btc label.padding_left=6 \
-		--set btc label.color=0xffeceff4 \
-		--set btc background.color=0xff57627A \
-		--set btc background.height=21 \
-		--set btc background.padding_right=7 \
-		--set btc update_freq=20 \
-		--set btc script="~/.config/sketchybar/plugins/btc.sh"
-
-	# BTC LOGO
-	sketchybar -m --add item btc_logo right \
-		--set btc_logo icon= \
-		--set btc_logo icon.padding_left=7 \
-		--set btc_logo icon.padding_right=7 \
-		--set btc_logo label.padding_right=0 \
-		--set btc_logo label.padding_left=0 \
-		--set btc_logo icon.color=0xffeceff4  \
-		--set btc_logo background.color=0xff57627A \
-		--set btc_logo background.height=21 \
 
 	# TOP PROCESS
 	sketchybar -m --add item topproc right \
